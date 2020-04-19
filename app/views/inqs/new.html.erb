@@ -1,0 +1,25 @@
+<%= form_with(model: @inq, local: true) do |form| %>
+  <% if @inq.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @inq.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @inq.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="inq_name">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="inq_email">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+  <div class="inq_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
